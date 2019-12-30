@@ -21,6 +21,7 @@
  * 
  */
 
+
 #include <iostream>
 #include<cmath> 
 #define EPSILON 0.001 
@@ -38,10 +39,10 @@ double df(double x) // la derivada del polinomio
   
 void newtonRaphson(double x) 
 { 
-    double h = f(x) / df(x); 
-    while (abs(h) >= EPSILON) 
+    //double h = f(x) / df(x); 
+    while (abs(x*x*x - 4*x*x + 2) >= EPSILON) 
     { 
-		h = f(x)/df(x); 
+	//	h = f(x)/df(x); 
    
         // x(i+1) = x(i) - f(x) / f'(x)   
         x = x - f(x)/df(x); 
