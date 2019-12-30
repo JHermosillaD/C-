@@ -29,26 +29,23 @@ using namespace std;
   
 double f(double x) // definir el polinomio
 { 
-    return x*x*x - 4*x*x + 2; 
+    return x*x - 1024; 
 } 
   
 double df(double x) // la derivada del polinomio
 { 
-    return 3*x*x - 8*x; 
+    return 2*x; 
 } 
   
 void newtonRaphson(double x) 
 { 
-    //double h = f(x) / df(x); 
-    while (abs(x*x*x - 4*x*x + 2) >= EPSILON) 
+    while (abs(x*x - 1024) >= EPSILON) 
     { 
-	//	h = f(x)/df(x); 
-   
-        // x(i+1) = x(i) - f(x) / f'(x)   
         x = x - f(x)/df(x); 
+        cout << "La solución es: " << x;
     } 
   
-    cout << "LA solución es: " << x; 
+    //cout << "La solución es: " << x; 
 } 
 
 int main() 
