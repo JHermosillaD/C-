@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
+#include <math.h>
 #include <opencv2/opencv.hpp>
 
 using namespace std;
@@ -69,6 +70,15 @@ int main() {
             {
                covariance[i][j] += ( 1/( size_k - 1 )) * (x_space[i][k] - m[j]) * (x_space_transpose[k][j] - m[j]);
             }
+      }
+   }
+// Correlation matrix
+   float correlation [3][3];
+   for (int i = 0; i < 3; ++i)
+   { 
+      for (int j = 0; j < 3; ++j)
+      {
+         correlation[i][j] = covariance[i][j] / sqrt (covariance[i][i]*covariance[j][j]);
       }
    }
 
